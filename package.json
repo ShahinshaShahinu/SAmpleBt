@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "nodemon src/FlashFinder_Bot.js"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.65.1",
+    "nodemon": "^3.1.0"
+  }
+}
