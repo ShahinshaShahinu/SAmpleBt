@@ -1,10 +1,8 @@
 name: FlashFinder Bot
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    types: [opened]
 
 jobs:
   build:
