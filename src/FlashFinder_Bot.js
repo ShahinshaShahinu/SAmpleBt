@@ -1,5 +1,6 @@
 const bot = require("./Api/Bot_Token");
-const fs = require("fs");
+const fs = require("fs");require("dotenv").config();
+
 const salimFunction = require("./FindImage");
 const path=require('path')
 const aslamDir = path.resolve(__dirname, "./img/Aslam");
@@ -10,7 +11,7 @@ const SalimNames = [
   "salim suhail",
   "salim","salim ",
   "salu",
-  "Muhammed salim suhail",
+  "Muhammed salim suhail", 
 ];
 let username = ""; // Changed from const to let
 let waitingForName = false;
@@ -105,7 +106,7 @@ bot.on("message", (msg) => {
   }
 });
 // server created 
-const http = require("http");
+const http = require("http"); 
 
 const server = http.createServer((req, res) => {
   res.writeHead(200, { "Content-Type": "text/plain" });
@@ -113,7 +114,6 @@ const server = http.createServer((req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
