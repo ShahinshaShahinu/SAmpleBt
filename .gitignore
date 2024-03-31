@@ -1,6 +1,9 @@
 .env
 node_modules/
 package-lock-json
+<<<<<<< HEAD
 package.json 
 
 //shahinsha
+=======
+>>>>>>> feature
