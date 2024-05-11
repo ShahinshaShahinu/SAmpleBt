@@ -1,17 +1,19 @@
 const bot = require("./Api/Bot_Token");
 const fs = require("fs");require("dotenv").config();
 
-const salimFunction = require("./FindImage");
+const SunFunction = require("./FindImage");
 const path=require('path')
-const aslamDir = path.resolve(__dirname, "./img/Aslam");
-const validNames = ["Aslam", "aslam", "Akku", "Muhammed Aslam"];
-const SalimNames = [
-  "salim",
-  "Salim Suhail",
-  "salim suhail",
-  "salim","salim ",
-  "salu",
-  "Muhammed salim suhail", 
+const MoonDir = path.resolve(__dirname, "./img/Moon");
+const validNames = ["MoonDir", "Moon", "Moons", "chadran"];
+const SunNames = [
+  "SunNames",
+  "SunNames sun",
+  "sunset",
+  "morning",
+  "good mornig ",
+  "sun light",
+  "sunBright",
+  "sun"
 ];
 let username = ""; // Changed from const to let
 let waitingForName = false;
@@ -33,10 +35,10 @@ bot.on("message", (msg) => {
         }
       })
     ) {
-      bot.sendMessage(chatId, username + " is a Va... Vasuuu");
+      bot.sendMessage(chatId, username + " hello ...");
     
 
-      fs.readdir(aslamDir, (err, files) => {
+      fs.readdir(MoonDir, (err, files) => {
         if (err) {
           console.error("Error reading directory:", err);
           console.error("Current directory:", __dirname);
@@ -56,7 +58,7 @@ bot.on("message", (msg) => {
           batch.forEach((file) => {
             media.push({
               type: "photo",
-              media: `${aslamDir}/${file}`, // Full path to the photo
+              media: `${MoonDir}/${file}`, // Full path to the photo
             });
             // captions.push({ caption: "Your caption here" }); // Add your caption for each photo
           });
@@ -66,17 +68,17 @@ bot.on("message", (msg) => {
         }
       });
     } else if (
-      SalimNames.some((name) => {
-        console.log(messageText)
+      SunNames.some((name) => {
+        console.log(messageText);
         if (messageText.toLowerCase() === name.toLowerCase()) {
           username = name;
-          console.log(username,name ,'kkkk')
+
           return true;
         }
       })
     ) {
-    console.log('function calling now')
-      salimFunction(chatId,username);
+      console.log("function calling now");
+      SunFunction(chatId, username);
     } else {
       bot.sendMessage(chatId, "sorry . I couldn't Find Your Details ");
     }
@@ -85,7 +87,7 @@ bot.on("message", (msg) => {
     const username = msg.from.username;
     bot.sendMessage(
       chatId,
-      `Hi ${username}\n` + "Welcome to the FlashFinder_Bot!"
+      `Hi ${username}\n` + "Welcome to the Our-Bot!"
     );
   } else if (
     validNames.some((name) => {
@@ -95,7 +97,7 @@ bot.on("message", (msg) => {
       }
     })
   ) {
-    bot.sendMessage(chatId, username + " is a Vali Vasuuu");
+    bot.sendMessage(chatId, username + " hello");
     bot.sendPhoto(chatId, photoPaths);
   } else if (validNames.includes(messageText)) {
     console.log(messageText);

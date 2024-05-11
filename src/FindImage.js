@@ -1,12 +1,12 @@
 const bot = require("./Api/Bot_Token");
 const fs=require('fs')
 const path = require("path");
-const aslamDir = path.resolve(__dirname, "./img/Salim");
-function salimFunction(chatId, username) {
-  console.log(" salim function working ", username);
-  bot.sendMessage(chatId, username + " is a Va... Vasuuu");
+const MoonDir = path.resolve(__dirname, "./img/Moon");
+function SunFunction(chatId, username) {
+  console.log(" SunFunction  working ", username);
+  bot.sendMessage(chatId, username + " is a SunFunction ");
 
-  fs.readdir(aslamDir, (err, files) => {
+  fs.readdir(MoonDir, (err, files) => {
     if (err) {
       console.error("Error reading directory:", err);
       return;
@@ -21,7 +21,7 @@ function salimFunction(chatId, username) {
       batch.forEach((file) => {
         media.push({
           type: "photo",
-          media: `${aslamDir}/${file}`,
+          media: `${MoonDir}/${file}`,
         });
       });
 
@@ -30,6 +30,6 @@ function salimFunction(chatId, username) {
   });
 }
 
-module.exports =  salimFunction ;
+module.exports = SunFunction;
 
     
